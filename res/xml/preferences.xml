@@ -17,6 +17,9 @@
  */
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_theme">
+
     <Preference
         android:title="@string/themes"
         android:summary="@string/themes_summary"
@@ -26,6 +29,8 @@
             android:targetClass="com.android.mms.themes.Themes"
             android:targetPackage="com.android.mms" />
     </Preference>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/pref_sms_storage_title"
@@ -122,27 +127,18 @@
         <CheckBoxPreference
             android:key="pref_key_enable_notifications"
             android:title="@string/pref_title_notification_enabled"
-            android:summary="@string/pref_summary_notification_enabled"
             android:defaultValue="true" />
 
-        <RingtonePreference
-            android:layout="?android:attr/preferenceLayoutChild"
-            android:dependency="pref_key_enable_notifications"
-            android:key="pref_key_ringtone"
+        <RingtonePreference android:key="pref_key_ringtone"
             android:title="@string/pref_title_notification_ringtone"
             android:ringtoneType="notification"
+            android:dependency="pref_key_enable_notifications"
             android:defaultValue="content://settings/system/notification_sound" />
 
-        <ListPreference
-            android:layout="?android:attr/preferenceLayoutChild"
-            android:dependency="pref_key_enable_notifications"
-            android:key="pref_key_vibrateWhen"
-            android:defaultValue="@string/prefDefault_vibrateWhen"
+        <CheckBoxPreference android:key="pref_key_vibrate"
             android:title="@string/pref_title_notification_vibrateWhen"
-            android:summary="@string/pref_summary_notification_vibrateWhen"
-            android:entries="@array/prefEntries_vibrateWhen"
-            android:entryValues="@array/prefValues_vibrateWhen"
-            android:dialogTitle="@string/prefDialogTitle_vibrateWhen" />
+            android:dependency="pref_key_enable_notifications"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_title_quick_reply"

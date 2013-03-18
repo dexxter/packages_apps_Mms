@@ -172,17 +172,10 @@
     <string name="pref_title_sms_delete" msgid="6890538316799296878">"テキストメッセージの制限件数"</string>
     <string name="pref_title_mms_delete" msgid="7265878070847351664">"マルチメディアメッセージの制限件数"</string>
     <string name="pref_title_notification_enabled" msgid="9118792213953729414">"通知"</string>
-    <string name="pref_summary_notification_enabled" msgid="619729096820999905">"メッセージ受信: ステータスバーで通知"</string>
     <string name="pref_title_notification_vibrateWhen" msgid="4251208067092761057">"バイブレーション"</string>
-    <string name="pref_summary_notification_vibrateWhen" msgid="669655090822561447">"メッセージ受信の通知: バイブレーションON"</string>
-    <string name="pref_title_notification_ringtone" msgid="5467265237106229952">"着信音を選択"</string>
+    <string name="pref_title_notification_ringtone" msgid="8667533917574559659">"着信音"</string>
     <string name="pref_messages_to_save" msgid="3202539743892934926">"保存するメッセージ件数を設定"</string>
-  <string-array name="prefEntries_vibrateWhen">
-    <item msgid="2520871831815631409">"常に使用"</item>
-    <item msgid="6069709696037750627">"マナーモード時のみ"</item>
-    <item msgid="7486145357487111435">"使用しない"</item>
-  </string-array>
-    <string name="prefDialogTitle_vibrateWhen" msgid="6419655771690242118">"バイブレーション"</string>
+    <string name="silent_ringtone" msgid="7981237991326592780">"マナーモード"</string>
     <string name="pref_title_mms_auto_retrieval" msgid="4021878285474431355">"自動で取得"</string>
     <string name="pref_summary_mms_auto_retrieval" msgid="925163257363757048">"メッセージを自動的に取得する"</string>
     <string name="pref_title_mms_retrieval_during_roaming" msgid="6016227402731817804">"ローミング時に自動取得"</string>
@@ -288,7 +281,7 @@
     <string name="save_ringtone" msgid="2310157075045201051">"着信音として保存"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"着信音を保存しました。"</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"着信音を保存できませんでした。"</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"絵文字を挿入"</string>
+    <string name="menu_insert_smiley" msgid="4964504393061025071">"顔文字を挿入"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"参加者をグループ化"</string>
     <string name="select_link_title" msgid="3371818607625768447">"操作の選択"</string>
     <string name="slide_number" msgid="1923958526266726635">"スライド<xliff:g id="NUMBER">%s</xliff:g>"</string>

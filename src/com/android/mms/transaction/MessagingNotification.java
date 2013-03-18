@@ -34,6 +34,7 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
+import android.media.VibrationPattern;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -50,6 +51,7 @@ import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.widget.Toast;
 import com.android.mms.LogTag;
+import com.android.mms.MmsConfig;
 import com.android.mms.R;
 import com.android.mms.data.Contact;
 import com.android.mms.data.Conversation;
@@ -781,6 +783,9 @@ public class MessagingNotification {
             Bitmap attachmentBitmap,
             Contact contact,
             int attachmentType) {
+        if (MmsConfig.isSuppressedSprintVVM(address)) {
+            return null;
+        }
         Intent clickIntent = ComposeMessageActivity.createIntent(context, threadId);
         clickIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -792,7 +797,6 @@ public class MessagingNotification {
                 0, senderInfo.length() - 2);
         CharSequence ticker = buildTickerMessage(
                 context, address, subject, message);
-
         return new NotificationInfo(isSms,
                 clickIntent, message, subject, ticker, timeMillis,
                 senderInfoName, attachmentBitmap, contact, attachmentType, threadId);
@@ -875,6 +879,7 @@ public class MessagingNotification {
         final Resources res = context.getResources();
         String title = null;
         Bitmap avatar = null;
+        long[] customVibration = null;
         if (uniqueThreadCount > 1) { // messages from multiple threads
             Intent mainActivityIntent = new Intent(Intent.ACTION_MAIN);
 
@@ -911,11 +916,19 @@ public class MessagingNotification {
                 }
             }
 
+            //check for custom vibration pattern
+            customVibration = getVibrationPattern(context, mostRecentNotification.mSender.getCustomVibrationUriString());
+
             taskStackBuilder.addParentStack(ComposeMessageActivity.class);
             taskStackBuilder.addNextIntent(mostRecentNotification.mClickIntent);
         }
         // Always have to set the small icon or the notification is ignored
-        noti.setSmallIcon(R.drawable.stat_notify_sms);
+        if (Settings.System.getInt(context.getContentResolver(),
+                Settings.System.MMS_BREATH, 0) == 1) {
+               noti.setSmallIcon(R.drawable.stat_notify_sms_breath);
+           } else {    
+               noti.setSmallIcon(R.drawable.stat_notify_sms);
+        }
 
         NotificationManager nm = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -934,28 +947,30 @@ public class MessagingNotification {
 
         if (isNew) {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-            String vibrateWhen;
-            if (sp.contains(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN)) {
-                vibrateWhen =
+
+            boolean vibrate = false;
+            if (sp.contains(MessagingPreferenceActivity.NOTIFICATION_VIBRATE)) {
+                // The most recent change to the vibrate preference is to store a boolean
+                // value in NOTIFICATION_VIBRATE. If prefs contain that preference, use that
+                // first.
+                vibrate = sp.getBoolean(MessagingPreferenceActivity.NOTIFICATION_VIBRATE,
+                        false);
+            } else if (sp.contains(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN)) {
+                // This is to support the pre-JellyBean MR1.1 version of vibrate preferences
+                // when vibrate was a tri-state setting. As soon as the user opens the Messaging
+                // app's settings, it will migrate this setting from NOTIFICATION_VIBRATE_WHEN
+                // to the boolean value stored in NOTIFICATION_VIBRATE.
+                String vibrateWhen =
                         sp.getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN, null);
-            } else if (sp.contains(MessagingPreferenceActivity.NOTIFICATION_VIBRATE)) {
-                vibrateWhen =
-                        sp.getBoolean(MessagingPreferenceActivity.NOTIFICATION_VIBRATE, false) ?
-                                context.getString(R.string.prefDefault_vibrate_true) :
-                                context.getString(R.string.prefDefault_vibrate_false);
-            } else {
-                vibrateWhen = context.getString(R.string.prefDefault_vibrateWhen);
+                vibrate = "always".equals(vibrateWhen);
             }
-
-            boolean vibrateAlways = vibrateWhen.equals("always");
-            boolean vibrateSilent = vibrateWhen.equals("silent");
-            AudioManager audioManager =
-                    (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-            boolean nowSilent =
-                    audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE;
-
-            if (vibrateAlways || vibrateSilent && nowSilent) {
-                defaults |= Notification.DEFAULT_VIBRATE;
+            if (vibrate) {
+                if (customVibration == null) {
+                    defaults |= Notification.DEFAULT_VIBRATE;
+                }
+                else {
+                    noti.setVibrate(customVibration);
+                }
             }
 
             String ringtoneStr = sp.getString(MessagingPreferenceActivity.NOTIFICATION_RINGTONE,
@@ -1610,6 +1625,17 @@ public class MessagingNotification {
             }
         } finally {
             cursor.close();
+        }
+    }
+
+    private static long[] getVibrationPattern(Context context, String mCustomVibrationUriString) {
+        if (TextUtils.isEmpty(mCustomVibrationUriString)) {
+            return null;
+        }
+        else {
+            Uri mCustomVibrationUri = Uri.parse(mCustomVibrationUriString);
+            VibrationPattern mVibrationPattern = new VibrationPattern(mCustomVibrationUri, context);
+            return mVibrationPattern.getPattern();
         }
     }
 }
