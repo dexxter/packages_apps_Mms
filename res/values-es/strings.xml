@@ -342,4 +342,172 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> - <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+        <!-- MMS THEME SETTINGS -->
+    <string name="pref_theme">TEMA</string>
+    <string name="themes">Configure tema de MMS</string>
+    <string name="themes_summary">Personalize aspecto de MMS</string>
+    <string name="themes_conv_list_title">Lista de conversación</string>
+    <string name="themes_conv_list_summary">Color pantalla lista de conve.</string>
+    <string name="themes_msg_list_title">Estilo de mensajes</string>
+    <string name="themes_msg_list_summary">Vista de color y estilo de MMS</string>
+    <string name="themes_widget_title">Color widgets</string>
+    <string name="themes_widget_summary">Color del texto en widgets</string>
+    <string name="background_colors">Fondo</string>
+    <string name="restore_defaults">Restaurar configuración predeterminada</string>
+    <string name="delete_custom_image">Borrar imagen de fondo</string>
+    <string name="custom_image_title">Imagen personalizada</string>
+    <string name="custom_image_summary">Selecciona una imagen de fondo</string>
+    <string name="restart_MMS_title">Reiniciar MMS</string>
+    <string name="restart_MMS_summary">Algunas configuraciones de imagen personalizadas requieren reiniciar, por lo tanto reinicia aquí mismo **Al cambiar configuración del widget dark a light o al revés, se debe quitar y colocar nuevamente el widget.</string>
+ 
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Selector de color</string>
+    <string name="press_color_to_apply">Pulse sobre el Color para aplicar</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="ics_color">Holo</string>
+    
+   	<!-- Themes preference categorys -->
+    <string name="main_bg">Fondo principal</string>
+    <string name="recv_text_header">Textos recibidos</string>
+    <string name="sent_text_header">Textos enviados</string>
+    <string name="show_contact_avatar">Mostrar avatar del contacto</string>
+    <string name="text_conv_layout">Estilo de conversación de MMS</string>
+    <string name="conversation_list_unread">Lista de conversaciónes no leídas</string>
+    <string name="conversation_list_read">Lista de conversaciónes no leídas</string>
+    
+	   <!-- conv list read/unread -->
+    <string name="unread_bg">Fondo no leídos</string>
+    <string name="unread_contact">Contactos no leídos</string>
+    <string name="unread_subject">Asuntos no leídos</string>
+    <string name="unread_date">Citas no leídas</string>
+    <string name="unread_count">Contador mensajes no leídos</string>
+    <string name="unread_smiley">Emoticonos no leídos</string>
+    <string name="read_bg">Fondo de leídos</string>
+    <string name="read_contact">Contactos leídos</string>
+    <string name="read_subject">Asuntos leídos</string>
+    <string name="read_date">Citas leídas</string>
+    <string name="read_count">Contador mensajes leídos</string>
+    <string name="read_smiley">Emoticonos leídos</string>
+    
+	   <!-- bubbles -->
+    <string name="text_bubble_title">Definir estilo de burbujas</string>
+    <string name="bubble_fill_parent_title">Completar vista de burbuja</string>
+    <string name="bubble">Burbuja</string>
+    <string name="bubble_none">Sin burbujas</string>
+    <string name="hc_bubble">Burbuja flecha abajo</string>
+    <string name="circle_bubble">Burbuja flecha al lado</string>
+    <string name="frame_arrow">Marco con flecha</string>
+    <string name="frame_outer_only">Marco exterior</string>
+    <string name="frame">Marco</string>
+   
+    <!-- Contact use -->
+    <string name="show_contact_name">Mostrar nombre de contacto</string>
+    
+	   <!-- Sent colors -->
+    <string name="sent_textcolor">Mensajes enviados</string>
+    <string name="sent_smiley">Emoticonos enviados</string>
+    <string name="sent_datecolor">Enviar Cita</string>
+    <string name="sent_contact_color">Enviar contacto</string>
+    <string name="sent_text_bg">Enviar fondo</string>
+    
+	   <!-- Recv colors -->
+    <string name="recv_textcolor">Textos enviados</string>
+    <string name="recv_smiley">Emoticonos recibidos</string>
+    <string name="recv_datecolor">Citas recibidas</string>
+    <string name="recv_contact_color">Contacto recibidos</string>
+    <string name="recv_text_bg">Fondos recibidos</string>
+    
+   	<!-- Conversation layout styles -->
+    <string name="layout_default">Estilo predeterminado</string>
+    <string name="layout_from_left">Estilo desde izquierda</string>
+    <string name="layout_from_right">Estilo desde derecha</string>
+    
+	   <!-- add signature -->
+    <string name="add_signature_title">Firma de mensajes</string>
+    <string name="add_signature_summary">Establecer una firma personalizada para sus mensajes</string>
+    <string name="enter_text">Ingrese texto</string>
+    
+   	<!-- widgets -->
+    <string name="widget_layout_dark">Oscuro</string>
+    <string name="widget_layout_light">Claro</string>
+    <string name="widget_layout">Estilo de widget</string>
+    <string name="widget_read">Color de leídos</string>
+    <string name="widget_unread">Color de no leídos</string>
+    <string name="widget_senders_textcolor_read">Texto de remitente leído</string>
+    <string name="widget_senders_textcolor_unread">Texto de remitente no leído</string>
+    <string name="widget_subject_textcolor_read">Texto de asunto leído</string>
+    <string name="widget_subject_textcolor_unread">Texto de asunto no leído</string>
+    <string name="widget_date_textcolor_read">Texto de citas leídas</string>
+    <string name="widget_date_textcolor_unread">Texto de citas no leídas</string>
+    
+   	<!-- Soft Keyboard Type -->
+    <string name="pref_soft_keyboard_title">Teclado</string>
+    <string name="pref_title_input_type">Tipo de teclado en pantalla</string>
+    <string name="pref_summary_input_type">Seleccione el teclado en pantalla para redactar mensajes</string>
+    <string name="pref_keyboard_emoji">Emojin</string>
+    <string name="pref_keyboard_send">Enter para enviar</string>
+    <string name="pref_keyboard_new_line">Enter una nueva linea</string>
+	  
+   	<!-- Extra Settings: -->
+    <string name="pref_extra_settings">Configuración extra</string>
+
+    <!-- Strip unicode -->
+    <string name="pref_title_strip_unicode">Limpiar Unicode</string>
+    <string name="pref_summary_strip_unicode">Sustituir los caracteres que no son compatibles en los mensajes SMS</string>
+	
+	   <!-- DISPLAY -->
+    <string name="pref_display_title">Pantalla</string>
+	
+	   <!-- Settings item for boolean option to show the full datetime -->
+    <string name="pref_title_fulldate">Mostrar fecha completa</string>
+    <string name="pref_summary_fulldate">Mostrar la fecha completa de los mensajes</string>
+	
+	   <!-- Enable emojis -->
+    <string name="pref_title_enable_emojis">Habilitar Emoji</string>
+    <string name="pref_summary_enable_emojis">Habilitar soporte para Emoji Unicode, una colección de 471 simpáticos emoticonos</string>
+    <string name="pref_title_pref_key_emojis_quick">Botón rápido de emoji</string>
+    <string name="pref_summary_pref_key_emojis_quick">Mostrar botón a la izquierda del texto, para acceso rápido.</string>
+
+	   <!-- Settings item for boolean option to show the call back button in the quick reply notification -->
+    <string name="pref_title_quickreply_callbutton">Mostrar botón llamar</string>
+    <string name="pref_summary_quickreply_callbutton">Mostrar botón llamar en notificación de respuesta rápida</string>
+    
+	   <!-- Settings item for boolean option to show the sms reply button in the quick reply notification -->
+    <string name="pref_title_quickreply_sms_reply">Mostrar botón MMS</string>
+    <string name="pref_summary_quickreply_sms_reply">Mostrar botón MMS en notificación de respuesta rápida</string>
+    
+	   <!-- Settings item for boolean option to show the delete button in the quick reply notification -->
+    <string name="pref_title_quickreply_delete">Mostrar botón borrar</string>
+    <string name="pref_summary_quickreply_delete">Mostrar botón borrar en notificación de respuesta rápida</string>
+    
+	   <!-- Settings item for boolean option to show the mark read button in the quick reply notification -->
+    <string name="pref_title_quickreply_mark_read">Mostrar botón marcar como leído</string>
+    <string name="pref_summary_quickreply_mark_read">Mostrar botón marcar como leído en notificación de respuesta rápida</string>
+	
+    <!-- Quick Reply -->
+    <string name="quick_call_back">Llamar</string>
+    <string name="quick_call_back_short">Llamar</string>
+    <string name="quick_reply_sms">Respuesta rápida</string>
+    <string name="quick_reply_sms_short">Respuesta</string>
+    <string name="quick_reply_delete">Borrar MMS</string>
+    <string name="quick_reply_delete_short">Borrar</string>
+    <string name="quick_reply_mark_read">Marcar como leído</string>
+    <string name="quick_reply_mark_read_short">Leído</string>
+    <string name="quick_reply_sending">Respuesta rápida enviada a</string>
+    <string name="qr_alert_title">Nada ha sido enviado</string>
+    <string name="qr_alert_message">Quiere cancelar mensaje?</string>
+    <string name="qr_alert_yes">Si</string>
+    <string name="qr_alert_no">No</string>
+    <string name="qr_alert_read">Marcar leído</string>
+    <string name="qr_mark_read">Marcar leído &amp; Cerrar</string>
+    <string name="qr_pick_smiley">Insertar Emoticono</string>
+    <string name="qr_pick_emoji">Insertar Emoji</string>
+    <string name="qr_close_popup">Cerrar</string>
+    <string name="qr_multi_ask">A quien quiere contestar?</string>
+    <string name="quick_reply_hint">Tipo de mensaje</string>
+    <string name="only_three_please">Sólo seleccionar tres opciones a la vez</string>
+    <string name="pref_title_quick_reply">Respuesta Rápida</string>
 </resources>
